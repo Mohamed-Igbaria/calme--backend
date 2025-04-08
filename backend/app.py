@@ -22,6 +22,48 @@ db = mongo.db  # Reference to the database
 # Collection reference
 users_collection = db.Users
 
+session_col = db.session 
+# ✅ 1. Create (POST) - add New user
+
+@app.route('/session', methods=['POST'])
+def add_session():
+    data = request.json
+    if not data.get("sentiment_analysis") :
+        return jsonify({"error": "session data are required"}), 400
+    count = session_col.count_documents({})
+    if count == 0:
+          x=data["sentiment_analysis"]["results"]
+           
+          new_item={ "session_id":1,
+              "doc_id":1,
+              "user_id":2,
+                
+                "results":x,
+
+                
+        
+                }
+          id = session_col.insert_one(new_item).inserted_id
+    else:
+     last_record = session_col.find().sort("_id", -1)
+     last_id=last_record[0].get("session_id")
+     x=data["sentiment_analysis"]["results"]
+           
+     new_item={ "session_id":last_id+1,
+              "doc_id":1,
+              "user_id":2,
+                "results":x
+                }
+     id = session_col.insert_one(new_item).inserted_id
+    return jsonify({"message": "product added", "id": str(id)}), 201
+
+# ✅ 2. Read (GET) - Fetch All users
+@app.route('/session', methods=['GET'])
+def get_session():
+    users = list(session_col.find({}, {"_id": 0}))  # Exclude _id field
+    return jsonify(users), 200
+
+
 
 @app.route('/doctor', methods=['POST'])
 def  add_doc():
