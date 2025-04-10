@@ -2,6 +2,11 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from mongoengine import connect
 
+
+from SessionTimelineAnalysisDashboardFolder.TalkingTimeData import talking_time_bp
+from SessionTimelineAnalysisDashboardFolder.ClientTenseData import client_tense_bp
+from SessionTimelineAnalysisDashboardFolder.ClientSentimentData import client_sentiment_bp
+
 from config import Config
 
 
@@ -17,6 +22,11 @@ def create_app():
     from routes.user_routes import user_bp
     from routes.session_routes import session_bp
     from routes.protected_routes import protected_bp
+
+    app.register_blueprint(talking_time_bp)
+    app.register_blueprint(client_tense_bp)
+    # app.register_blueprint(speech_cadence_bp) ///NOT READY YET///
+    app.register_blueprint(client_sentiment_bp)
 
     app.register_blueprint(user_bp, url_prefix='/api/users')
     app.register_blueprint(session_bp, url_prefix='/api/sessions')
