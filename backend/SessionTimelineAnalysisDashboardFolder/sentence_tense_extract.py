@@ -1,14 +1,16 @@
 import nltk
 import re
-nltk.download('averaged_perceptron_tagger_eng')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('punkt_tab')
+# nltk.download('averaged_perceptron_tagger_eng')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('punkt_tab')
+# nltk.help.upenn_tagset()  # shows all tags
 
 from nltk import word_tokenize, pos_tag
 
 
-#function 1 to check tense
+# Set of future-related time keywords
+
 
 def is_modal_future(tagged_tokens):
     """Check for modal + base verb combo"""
@@ -16,8 +18,6 @@ def is_modal_future(tagged_tokens):
         if tag == 'MD' and tagged_tokens[i + 1][1] == 'VB':
             return True
     return False
-
-#function 2 to check tense
 
 def contains_future_time_expression(sentence):
     FUTURE_PHRASES = [
@@ -32,7 +32,7 @@ def contains_future_time_expression(sentence):
     lowered = sentence.lower()
     return any(re.search(pattern, lowered) for pattern in FUTURE_PHRASES)
 
-#function 3 to check tense
+
 def tense_detect(tagged_sentence):
 
     verb_tags = ['MD','MDF',
@@ -53,7 +53,8 @@ def tense_detect(tagged_sentence):
             verb_phrase.append(item)
     
     if not verb_phrase:
-        return False
+        # print("non-verb-sentence")
+        return
     
     # print("verb Phrases => " ,verb_phrase)
 
@@ -108,7 +109,7 @@ def tense_detect(tagged_sentence):
                 return True
             
     return False
-
+    # return result, tenses_set
 
 def detect_futureAux(sentence):
     """Combine modal check + time phrase check"""
@@ -119,6 +120,10 @@ def detect_futureAux(sentence):
     has_time = contains_future_time_expression(sentence)
     tense_detect_result = tense_detect(tagged)
 
+    # has_modal = True
+    # has_time = True
+    # tense_detect_result = True
+
     return {
         'modal_future': has_modal,
         'time_phrase': has_time,
@@ -128,3 +133,34 @@ def detect_futureAux(sentence):
 
 def detect_future(sentence):
     return detect_futureAux(sentence)["is_future"]
+
+def testInput(sentence):
+    tags = pos_tag(word_tokenize(sentence))
+    result= tense_detect(tags)
+    result2 = contains_future_time_expression(sentence)
+    result3 = is_modal_future(tags)
+    result4 = detect_future(sentence)
+    # print("-------------------------------------tense_detect---------------------------------------------")
+    # print(result)
+    # print("-------------------------------------contains_future_time_expression---------------------------------------------")
+    # print(result2)
+    # print("-------------------------------------is_modal_future---------------------------------------------")
+    # print(result3)
+    print("-------------------------------------detect_future---------------------------------------------")
+    print(result4)
+    print()
+    print()
+
+
+
+sentence1 = "I am going to do that tomorrow"
+sentence2 = "I might do it"
+sentence3 = "I will do that"
+sentence4 = "I am thinking of trying a new thing next week"
+sentence5 = "ok, next week"
+
+# testInput(sentence1)
+# testInput(sentence2)
+# testInput(sentence3)
+# testInput(sentence4)
+# testInput(sentence5)
