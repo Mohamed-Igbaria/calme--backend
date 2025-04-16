@@ -8,8 +8,9 @@ import apifun as ap
 #Including SessionTimelineAnalysisDashboard files 
 from SessionTimelineAnalysisDashboardFolder.TalkingTimeData import talking_time_bp
 from SessionTimelineAnalysisDashboardFolder.ClientTenseData import client_tense_bp
-# from SessionTimelineAnalysisDashboardFolder.SpeechCadenceData import speech_cadence_bp ///NOT READY YET///
+from SessionTimelineAnalysisDashboardFolder.SpeechCadenceData import speech_cadence_bp 
 from SessionTimelineAnalysisDashboardFolder.ClientSentimentData import client_sentiment_bp
+from SessionTimelineVisualizationFolder.SessionTimelineData import session_timeline_visualization_bp
 
 
 # Load environment variables
@@ -23,8 +24,9 @@ CORS(app)
 # Connecting SessionTimelineAnalysisDashboard routes
 app.register_blueprint(talking_time_bp)
 app.register_blueprint(client_tense_bp)
-# app.register_blueprint(speech_cadence_bp) ///NOT READY YET///
+app.register_blueprint(speech_cadence_bp)
 app.register_blueprint(client_sentiment_bp)
+app.register_blueprint(session_timeline_visualization_bp)
 
 
 # Configure MongoDB Atlas Connection
