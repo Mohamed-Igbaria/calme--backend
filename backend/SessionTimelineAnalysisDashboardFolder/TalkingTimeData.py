@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from datetime import datetime, timedelta
+from datetime import timedelta
 from Input import conversation
 
 talking_time_bp = Blueprint('TalkingTime_bp', __name__)
