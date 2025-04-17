@@ -1,0 +1,252 @@
+{
+  "session_id": "3",
+  "doctor_id": "2",
+  "client_id": "3",
+  "transcript": [
+    {
+      "timestamp": "0:00:00",
+      "speaker": "Dr. Al-Saad",
+      "text": "Assalamu alaykum, Khalid. I'm glad you could make it."
+    },
+    {
+      "timestamp": "0:00:02",
+      "speaker": "Khalid",
+      "text": "Wa alaikum al-salam, Dr. Al-Saad. It's still a new experience for me. I'm not quite used to this idea yet."
+    },
+    {
+      "timestamp": "0:00:11",
+      "speaker": "Dr. Al-Saad",
+      "text": "It's understandable. Therapy is a new concept for many, but most people find it a safe and comfortable space. I had a professor once tell me that therapy is unique. It's two people focusing on one person, and it's the only relationship where that happens. I don't have to worry about you; I can focus all my attention on you. I hope you can allow that and benefit from this time together."
+    },
+    {
+      "timestamp": "0:00:48",
+      "speaker": "Khalid",
+      "text": "That's a good way to look at it. In a marriage, it's usually more about the other person."
+    },
+    {
+      "timestamp": "0:01:01",
+      "speaker": "Dr. Al-Saad",
+      "text": "It goes both ways. We have to consider the feelings of our spouse, which is part of why you're here, isn't it?"
+    },
+    {
+      "timestamp": "0:01:12",
+      "speaker": "Khalid",
+      "text": "Absolutely. The idea of focusing on one reminds me of my time at King Faisal Specialist Hospital. When I was performing surgeries, the entire team was focused on that one patient, working together for their well-being."
+    },
+    {
+      "timestamp": "0:01:42",
+      "speaker": "Dr. Al-Saad",
+      "text": "Khalid, tell me a bit about why you left King Faisal Specialist Hospital. I know it has an excellent reputation. What prompted your move to the Saudi German Hospital?"
+    },
+    {
+      "timestamp": "0:02:04",
+      "speaker": "Khalid",
+      "text": "King Faisal Specialist Hospital is renowned for cardiothoracic surgery. I was there for 17 years and served as chief of staff. Have you ever held someone's life in your hands, knowing you have the power of life and death? That's what cardiac surgery is like. I had a young woman, Amira, who was in perfect health. She died on the operating table. There was no explanation. I did everything right, but she passed away. Her family was understanding, but I couldn't shake the feeling that I had failed. After that, I needed a change. The opportunity at the Saudi German Hospital arose, and my wife and I discussed it. Her family is in Jeddah, and family is important to her. I understand that, but it wasn't as important to me. We moved to Jeddah, and that's why I'm here."
+    },
+    {
+      "timestamp": "0:04:16",
+      "speaker": "Dr. Al-Saad",
+      "text": "I hear more emotion in your voice when you talk about Amira. Can you tell me more about how it affected you? It sounds like it was a deep impact."
+    },
+    {
+      "timestamp": "0:04:37",
+      "speaker": "Khalid",
+      "text": "It's easy to bring up the pain. I still carry it with me. I did everything I could for her, but I failed. There was no excuse. I pride myself on my work, my professionalism, and my team's dedication. Our core purpose is to save lives. I know many others have had successful outcomes under my care, but that doesn't erase this. It haunts me."
+    },
+    {
+      "timestamp": "0:05:47",
+      "speaker": "Dr. Al-Saad",
+      "text": "Do you share this story with your students?"
+    },
+    {
+      "timestamp": "0:05:53",
+      "speaker": "Khalid",
+      "text": "No, I don't. A big part of my job as an educator is to instill confidence in them. A cardiothoracic surgeon who lacks confidence is a detriment to themselves, their team, and their patients. I want them to focus on their skills and knowledge, not on my personal experiences. They'll learn those lessons on their own."
+    },
+    {
+      "timestamp": "0:06:56",
+      "speaker": "Dr. Al-Saad",
+      "text": "What happened at King Faisal Specialist Hospital, the loss of Amira, how did it influence your decision to leave? It seems you not only left your position but also stopped performing surgery."
+    },
+    {
+      "timestamp": "0:07:29",
+      "speaker": "Khalid",
+      "text": "When I failed Amira, I felt like I had failed myself. I vowed to become a heart surgeon when my father died. I wanted to save others from suffering a similar fate. I was with my friend, Abdullah, when my father collapsed. I tried CPR, called an ambulance, but he didn't survive. That's when I decided to pursue medicine. So, when I lost Amira, it felt like I had lost my father again. I know it might sound obsessive, but it's there. It's something I can't just shake off. As for leaving the hospital, I lost faith in my colleagues. I was the leader, and it felt like I had passed my prime."
+    },
+    {
+      "timestamp": "0:09:45",
+      "speaker": "Dr. Al-Saad",
+      "text": "It sounds like your father's death had a profound impact on you. You dedicated your life to saving others, and then you experienced a similar loss. It shattered you."
+    },
+    {
+      "timestamp": "0:10:35",
+      "speaker": "Khalid",
+      "text": "It was a step backward."
+    },
+    {
+      "timestamp": "0:10:36",
+      "speaker": "Dr. Al-Saad",
+      "text": "Tell me more about that."
+    },
+    {
+      "timestamp": "0:10:42",
+      "speaker": "Khalid",
+      "text": "Here I was, saving lives, and then someone's life was lost in my hands. It felt like I was back in the kitchen with my father, trying and trying but failing."
+    },
+    {
+      "timestamp": "0:11:06",
+      "speaker": "Dr. Al-Saad",
+      "text": "How old were you when your father died?"
+    },
+    {
+      "timestamp": "0:11:11",
+      "speaker": "Khalid",
+      "text": "Nineteen."
+    },
+    {
+      "timestamp": "0:11:13",
+      "speaker": "Dr. Al-Saad",
+      "text": "You were very young."
+    },
+    {
+      "timestamp": "0:11:18",
+      "speaker": "Khalid",
+      "text": "I was supposed to join the family business, but my brother took over. I went to school and became a surgeon. It wasn't easy, but I was focused. I went to the University of Pennsylvania. Perfectionism is key in this field. Surgeons often come across as arrogant because they are so confident. They are intelligent, dedicated, and hardworking. You have to be focused throughout your medical career."
+    },
+    {
+      "timestamp": "0:12:40",
+      "speaker": "Dr. Al-Saad",
+      "text": "You've worked hard and dedicated your life to something meaningful. Now, you're teaching the next generation. However, your family is struggling. Your wife is unhappy, your children feel distant, and you've had heart palpitations. Your cardiologist suggested you come here. What would you like to focus on? What's important to you right now?"
+    },
+    {
+      "timestamp": "0:13:52",
+      "speaker": "Khalid",
+      "text": "I can't ignore my marriage. Work is demanding, but I feel disconnected from my family. I provide for them, but I don't feel connected to my children or my stepson. I'm always tired when I'm home, and my wife and I haven't been intimate in about a year. She's been encouraging me to go to counseling. I might consider it after our sessions. I don't want to be foolish and ignore the situation. My brother, Faisal, is also going through a tough time. He mentioned that he might benefit from therapy after I told him about mine. Would you be interested in talking to him?"
+    },
+    {
+      "timestamp": "0:16:22",
+      "speaker": "Dr. Al-Saad",
+      "text": "I would be happy to talk to Faisal, but I have some limitations. As a therapist, I'm required to be licensed in the state where the patient resides. Since Faisal lives in Jeddah, I can't provide therapy to him. However, I can help you find a therapist in Jeddah who can assist him."
+    },
+    {
+      "timestamp": "0:17:14",
+      "speaker": "Khalid",
+      "text": "That would be good. I haven't had a great relationship with my brother. It's another piece of the puzzle that could use some help."
+    },
+    {
+      "timestamp": "0:17:28",
+      "speaker": "Dr. Al-Saad",
+      "text": "How is your relationship with him now?"
+    },
+    {
+      "timestamp": "0:17:34",
+      "speaker": "Khalid",
+      "text": "Not great. We don't talk much and have little in common besides our family ties. He's involved in a different field, construction, and there are some shady aspects to that business that I'm not involved in."
+    },
+    {
+      "timestamp": "0:18:17",
+      "speaker": "Dr. Al-Saad",
+      "text": "I'm hearing two themes in your story, Khalid. One is your dedication to work. You pour your heart and soul into it, driven by past traumas. The other theme is loneliness and disconnection in your relationships. People want to be close to you, but there's a barrier. How do you balance these two aspects of your life?"
+    },
+    {
+      "timestamp": "0:19:32",
+      "speaker": "Khalid",
+      "text": "That's the challenge, isn't it? How do I find that balance? I hope these sessions will help me figure it out."
+    },
+    {
+      "timestamp": "0:20:10",
+      "speaker": "Dr. Al-Saad",
+      "text": "How many people know the story you've shared with me?"
+    },
+    {
+      "timestamp": "0:20:24",
+      "speaker": "Khalid",
+      "text": "My wife and the people at King Faisal Specialist Hospital. I haven't shared it with anyone else. I don't want to dwell on the negative, but my wife says I shouldn't be thinking about it. Occasionally, I have vivid dreams about that situation. It happens two or three times a year. It's deeply embedded. I can picture myself, the room, my team, and then the flatline."
+    },
+    {
+      "timestamp": "0:21:30",
+      "speaker": "Dr. Al-Saad",
+      "text": "I think we need to work on healing from that trauma. It's haunting you and hasn't healed yet. That's something we can do together. We can help you find peace with what happened in the operating room and with your father's death. Many people don't understand how devastating that was for you as a young man. Healing from these traumas is essential for shifting your work-life balance. It's not just about wanting recognition or fame; it's about working through these deep-seated issues. By addressing these traumas, you might be able to rebalance your life. Does that make sense?"
+    },
+    {
+      "timestamp": "0:23:20",
+      "speaker": "Khalid",
+      "text": "Yes, that makes sense. Recognizing the problems and dealing with them is the way to tackle it."
+    },
+    {
+      "timestamp": "0:23:30",
+      "speaker": "Dr. Al-Saad",
+      "text": "This kind of work is difficult. Facing your fears and traumas is challenging, but I believe you can do it."
+    },
+    {
+      "timestamp": "0:23:54",
+      "speaker": "Khalid",
+      "text": "I don't want to add a failed marriage to the list. Even though things aren't going well, it's too important to me to let go of it."
+    },
+    {
+      "timestamp": "0:24:07",
+      "speaker": "Dr. Al-Saad",
+      "text": "People often look back on their relationships as the most valuable things in life. They don't regret spending more time at work; they regret not spending enough time with loved ones."
+    },
+    {
+      "timestamp": "0:24:28",
+      "speaker": "Khalid",
+      "text": "That's very true."
+    },
+    {
+      "timestamp": "0:24:35",
+      "speaker": "Dr. Al-Saad",
+      "text": "I'll suggest some books that might help you. We'll also discuss how trauma affects people and their bodies. One of my favorites is \"The Body Keeps the Score.\""
+    },
+    {
+      "timestamp": "0:25:08",
+      "speaker": "Khalid",
+      "text": "Essentially, we're talking about PTSD or something similar."
+    },
+    {
+      "timestamp": "0:25:23",
+      "speaker": "Dr. Al-Saad",
+      "text": "Let's start by creating a pie chart of your work-life balance. You can divide it into sections for work, family, relationships, hobbies, friends, and community activities. Draw one chart representing your current situation and another representing your ideal balance. This will give us a direction for our work together."
+    },
+    {
+      "timestamp": "0:26:11",
+      "speaker": "Khalid",
+      "text": "The ideal balance would be drastically different from my current reality."
+    },
+    {
+      "timestamp": "0:26:22",
+      "speaker": "Dr. Al-Saad",
+      "text": "This exercise can help us develop strategies to move towards your desired balance. It will be helpful to keep this pie chart in mind between sessions."
+    },
+    {
+      "timestamp": "0:27:42",
+      "speaker": "Khalid",
+      "text": "It seems like a simple approach, but it's a good one. I can work on this pie chart outside of our sessions and keep it in mind. I'll put it somewhere where I can see it daily."
+    },
+    {
+      "timestamp": "0:27:50",
+      "speaker": "Dr. Al-Saad",
+      "text": "That's a great idea. Let's end here for today, Khalid. I look forward to seeing you next week."
+    },
+    {
+      "timestamp": "0:27:55",
+      "speaker": "Khalid",
+      "text": "Thank you, Dr. Al-Saad."
+    },
+    {
+      "timestamp": "0:27:58",
+      "speaker": "Dr. Al-Saad",
+      "text": "You're welcome."
+    },
+    {
+      "timestamp": "0:28:00",
+      "speaker": "Khalid",
+      "text": "Have a good week."
+    },
+    {
+      "timestamp": "0:28:00",
+      "speaker": "Dr. Al-Saad",
+      "text": "You too."
+    }
+  ]
+}
