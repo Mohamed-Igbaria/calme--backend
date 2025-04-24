@@ -51,51 +51,51 @@ def tense_detect(tagged_sentence):
     for item in tagged_sentence:
         if item[1] in verb_tags:
             verb_phrase.append(item)
-    
+
     if not verb_phrase:
         return False
-    
+
     # print("verb Phrases => " ,verb_phrase)
 
     grammar = r'''
             future perfect continuous passive:     {<MDF><HV><BEN><BEG><VBN|VBD>+}
             conditional perfect continuous passive:{<MD><HV><BEN><BEG><VBN|VBD>+}
-            future continuous passive:             {<MDF><BE><BEG><VBN|VBD>+}   
-            conditional continuous passive:        {<MD><BE><BEG><VBN|VBD>+}    
-            future perfect continuous:             {<MDF><HV><BEN><VBG|HVG|BEG>+}   
+            future continuous passive:             {<MDF><BE><BEG><VBN|VBD>+}
+            conditional continuous passive:        {<MD><BE><BEG><VBN|VBD>+}
+            future perfect continuous:             {<MDF><HV><BEN><VBG|HVG|BEG>+}
             conditional perfect continuous:        {<MD><HV><BEN><VBG|HVG|BEG>+}
             past perfect continuous passive:       {<HVD><BEN><BEG><VBN|VBD>+}
             present perfect continuous passive:    {<HV|HVZ><BEN><BEG><VBN|VBD>+}
-            future perfect passive:                {<MDF><HV><BEN><VBN|VBD>+}   
-            conditional perfect passive:           {<MD><HV><BEN><VBN|VBD>+}    
-            future continuous:                     {<MDF><BE><VBG|HVG|BEG>+ }   
-            conditional continuous:                {<MD><BE><VBG|HVG|BEG>+  }   
+            future perfect passive:                {<MDF><HV><BEN><VBN|VBD>+}
+            conditional perfect passive:           {<MD><HV><BEN><VBN|VBD>+}
+            future continuous:                     {<MDF><BE><VBG|HVG|BEG>+ }
+            conditional continuous:                {<MD><BE><VBG|HVG|BEG>+  }
             future indefinite passive:             {<MDF><BE><VBN|VBD>+ }
             conditional indefinite passive:        {<MD><BE><VBN|VBD>+  }
-            future perfect:                        {<MDF><HV><HVN|BEN|VBN|VBD>+ }   
-            conditional perfect:                   {<MD><HV><HVN|BEN|VBN|VBD>+  }   
-            past continuous passive:               {<BED|BEDZ><BEG><VBN|VBD>+}  
-            past perfect continuous:               {<HVD><BEN><HVG|BEG|VBG>+}   
+            future perfect:                        {<MDF><HV><HVN|BEN|VBN|VBD>+ }
+            conditional perfect:                   {<MD><HV><HVN|BEN|VBN|VBD>+  }
+            past continuous passive:               {<BED|BEDZ><BEG><VBN|VBD>+}
+            past perfect continuous:               {<HVD><BEN><HVG|BEG|VBG>+}
             past perfect passive:                  {<HVD><BEN><VBN|VBD>+}
-            present continuous passive:            {<BEM|BER|BEZ><BEG><VBN|VBD>+}   
-            present perfect continuous:            {<HV|HVZ><BEN><VBG|BEG|HVG>+}    
+            present continuous passive:            {<BEM|BER|BEZ><BEG><VBN|VBD>+}
+            present perfect continuous:            {<HV|HVZ><BEN><VBG|BEG|HVG>+}
             present perfect passive:               {<HV|HVZ><BEN><VBN|VBD>+}
-            future indefinite:                     {<MDF><BE|DO|VB|HV>+ }       
-            conditional indefinite:                {<MD><BE|DO|VB|HV>+  }   
-            past continuous:                       {<BED|BEDZ><VBG|HVG|BEG>+}           
+            future indefinite:                     {<MDF><BE|DO|VB|HV>+ }
+            conditional indefinite:                {<MD><BE|DO|VB|HV>+  }
+            past continuous:                       {<BED|BEDZ><VBG|HVG|BEG>+}
             past perfect:                          {<HVD><BEN|VBN|HVD|HVN>+}
-            past indefinite passive:               {<BED|BEDZ><VBN|VBD>+}   
-            present indefinite passive:            {<BEM|BER|BEZ><VBN|VBD>+}            
-            present continuous:                    {<BEM|BER|BEZ><BEG|VBG|HVG>+}            
-            present perfect:                       {<HV|HVZ><BEN|HVD|VBN|VBD>+  }       
-            past indefinite:                       {<DOD><VB|HV|DO>|<BEDZ|BED|HVD|VBN|VBD>+}        
+            past indefinite passive:               {<BED|BEDZ><VBN|VBD>+}
+            present indefinite passive:            {<BEM|BER|BEZ><VBN|VBD>+}
+            present continuous:                    {<BEM|BER|BEZ><BEG|VBG|HVG>+}
+            present perfect:                       {<HV|HVZ><BEN|HVD|VBN|VBD>+  }
+            past indefinite:                       {<DOD><VB|HV|DO>|<BEDZ|BED|HVD|VBN|VBD>+}
             infinitive:                            {<TO><BE|HV|VB>+}
-            present indefinite:                    {<DO|DOZ><DO|HV|VB>+|<DO|HV|VB|BEZ|DOZ|BER|HVZ|BEM|VBZ>+}    
+            present indefinite:                    {<DO|DOZ><DO|HV|VB>+|<DO|HV|VB|BEZ|DOZ|BER|HVZ|BEM|VBZ>+}
             '''
 
     cp = nltk.RegexpParser(grammar)
     result = cp.parse(verb_phrase)
-    # print("RESULTS ==> ",result)    
+    # print("RESULTS ==> ",result)
 
     tenses_set = set()
     for node in result:
@@ -106,7 +106,7 @@ def tense_detect(tagged_sentence):
         for tense in tenses_set:
            if future_tense_type in tense:
                 return True
-            
+
     return False
 
 

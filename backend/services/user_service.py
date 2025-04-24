@@ -1,64 +1,62 @@
-# services/user_service.py
 from models.user import User
-
-from mongoengine.errors import NotUniqueError, DoesNotExist
-
+from app import db
+from sqlalchemy.exc import IntegrityError
 
 
 def create_user(data):
+    user = User(
+        sub=data.get('sub'),
+        name=data.get('name'),
+        given_name=data.get('given_name'),
+        family_name=data.get('family_name'),
+        nickname=data.get('nickname'),
+        email=data.get('email'),
+        email_verified=data.get('email_verified', False),
+        picture=data.get('picture'),
+        roles=data.get('roles', [])
+    )
+    db.session.add(user)
     try:
-        user = User(
-            sub=data.get('sub'),
-            name=data.get('name'),
-            given_name=data.get('given_name'),
-            family_name=data.get('family_name'),
-            nickname=data.get('nickname'),
-            email=data.get('email'),
-            email_verified=data.get('email_verified', False),
-            picture=data.get('picture'),
-            roles=data.get('roles', [])
-        )
-        user.save()
+        db.session.commit()
         return user
-    except NotUniqueError:
+    except IntegrityError:
+        db.session.rollback()
         raise ValueError('Email must be unique')
 
 
-
+# جلب كل المستخدمين
 def get_all_users():
-    return User.objects.all()
+    return User.query.all()
 
 
-
+# جلب مستخدم حسب sub
 def get_user_by_id(sub):
-    try:
-        return User.objects.get(sub=sub)
-    except DoesNotExist:
-        return None
+    return User.query.filter_by(sub=sub).first()
 
 
-# Function to get or create a user
+# جلب أو إنشاء مستخدم
 def get_or_create_user(user_payload):
     sub = user_payload.get('sub')
-    email = user_payload.get('email')
+    user = User.query.filter_by(sub=sub).first()
 
-    try:
-        user = User.objects.get(sub=sub)
+    if user:
         return user
-    except DoesNotExist:
-        try:
-            user = User(
-                sub=sub,
-                name=user_payload.get('name'),
-                given_name=user_payload.get('given_name'),
-                family_name=user_payload.get('family_name'),
-                nickname=user_payload.get('nickname'),
-                email=email,
-                email_verified=user_payload.get('email_verified', False),
-                picture=user_payload.get('picture'),
-                roles=user_payload.get('https://chatbot.example.com/roles', [])
-            )
-            user.save()
-            return user
-        except NotUniqueError:
-            raise ValueError("Email must be unique")
+
+    new_user = User(
+        sub=sub,
+        name=user_payload.get('name'),
+        given_name=user_payload.get('given_name'),
+        family_name=user_payload.get('family_name'),
+        nickname=user_payload.get('nickname'),
+        email=user_payload.get('email'),
+        email_verified=user_payload.get('email_verified', False),
+        picture=user_payload.get('picture'),
+        roles=user_payload.get('https://chatbot.example.com/roles', [])
+    )
+    db.session.add(new_user)
+    try:
+        db.session.commit()
+        return new_user
+    except IntegrityError:
+        db.session.rollback()
+        raise ValueError("Email must be unique")

@@ -11,13 +11,13 @@ def Talking_Time_Extract():
     hr, min, sec = map(int, conversation[-1]["end_time"].split(":"))
     conv_end = timedelta(hours = hr,minutes=min,seconds=sec)
     client_time = therapist_time = AI_time = timedelta()
-    
+
     for elem in conversation:
         hr, min, sec = map(int, elem["start_time"].split(":"))
         start_time = timedelta(hours = hr,minutes=min,seconds=sec)
         hr, min, sec = map(int, elem["end_time"].split(":"))
         end_time = timedelta(hours = hr,minutes=min,seconds=sec)
-        
+
         match elem["speaker"]:
 
             case "Therapist":
