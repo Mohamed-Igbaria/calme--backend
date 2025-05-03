@@ -1,4 +1,3 @@
-#example input after filtering from mongodb 
 conversation = [
   {
     "speaker": "Therapist",
@@ -19,14 +18,14 @@ conversation = [
     "message": "I'm doing okay.",
     "start_time": "00:00:07",
     "end_time": "00:00:09",
-    "sentiment": "Neutral"
+    "sentiment": "Positive"
   },
   {
     "speaker": "Client",
     "message": "Just a little stressed out.",
     "start_time": "00:00:10",
     "end_time": "00:00:13",
-    "sentiment": "Negative"
+    "sentiment": "Neutral"
   },
   {
     "speaker": "Therapist",
@@ -218,3 +217,173 @@ conversation = [
     "sentiment": "Positive"
   }
 ]
+
+testData = {
+  "session_id": 64582,
+  "therapist_id": 97145,
+  "client_id": 72594,
+  "conversation": [
+    {
+      "speaker": "Therapist",
+      "message": "Hello, how are you feeling today?",
+      "start_time": "00:00:00",
+      "end_time": "00:05:30"
+    },
+    {
+      "speaker": "Client",
+      "message": "I've been better. Work has been really stressful lately.",
+      "start_time": "00:05:31",
+      "end_time": "00:12:45"
+    },
+    {
+      "speaker": "Therapist",
+      "message": "Let's explore what's causing this stress.",
+      "start_time": "00:12:50",
+      "end_time": "00:18:20"
+    },
+    {
+      "speaker": "Client",
+      "message": "It's mainly the workload and tight deadlines.",
+      "start_time": "00:18:25",
+      "end_time": "00:25:10"
+    },
+    {
+      "speaker": "Therapist",
+      "message": "How does this stress affect you physically?",
+      "start_time": "00:25:15",
+      "end_time": "00:30:00"
+    },
+    {
+      "speaker": "Client",
+      "message": "I get headaches and have trouble sleeping.",
+      "start_time": "00:30:05",
+      "end_time": "00:38:20"
+    },
+    {
+      "speaker": "Therapist",
+      "message": "Let's discuss some coping strategies.",
+      "start_time": "00:38:25",
+      "end_time": "00:45:10"
+    },
+    {
+      "speaker": "Client",
+      "message": "That would be helpful.",
+      "start_time": "00:45:15",
+      "end_time": "00:50:30"
+    },
+    {
+      "speaker": "Therapist",
+      "message": "We'll start with simple breathing exercises.",
+      "start_time": "00:50:35",
+      "end_time": "00:55:00"
+    },
+    {
+      "speaker": "Client",
+      "message": "Thank you, I'll try that.",
+      "start_time": "00:55:05",
+      "end_time": "01:00:00"
+    }
+  ],
+  "topics":[
+    {
+      "topic_name": "Introduction",
+      "start_time": "00:00:00",
+      "end_time": "00:03:00"
+    },
+    {
+      "topic_name": "Work Stress",
+      "start_time": "00:03:05",
+      "end_time": "00:06:00"
+    },
+    {
+      "topic_name": "Physical Effects",
+      "start_time": "00:06:05",
+      "end_time": "00:09:00"
+    },
+    {
+      "topic_name": "Coping Strategies",
+      "start_time": "00:09:05",
+      "end_time": "00:12:00"
+    },
+    {
+      "topic_name": "Breathing Techniques",
+      "start_time": "00:12:05",
+      "end_time": "00:15:00"
+    },
+    {
+      "topic_name": "Sleep Issues",
+      "start_time": "00:15:05",
+      "end_time": "00:18:00"
+    },
+    {
+      "topic_name": "Nutrition",
+      "start_time": "00:18:05",
+      "end_time": "00:21:00"
+    },
+    {
+      "topic_name": "Exercise",
+      "start_time": "00:21:05",
+      "end_time": "00:24:00"
+    },
+    {
+      "topic_name": "Work-Life Balance",
+      "start_time": "00:24:05",
+      "end_time": "00:27:00"
+    },
+    {
+      "topic_name": "Time Management",
+      "start_time": "00:27:05",
+      "end_time": "00:30:00"
+    },
+    {
+      "topic_name": "Relationships",
+      "start_time": "00:30:05",
+      "end_time": "00:33:00"
+    },
+    {
+      "topic_name": "Anxiety",
+      "start_time": "00:33:05",
+      "end_time": "00:36:00"
+    },
+    {
+      "topic_name": "Mindfulness",
+      "start_time": "00:36:05",
+      "end_time": "00:39:00"
+    },
+    {
+      "topic_name": "Medication",
+      "start_time": "00:39:05",
+      "end_time": "00:42:00"
+    },
+    {
+      "topic_name": "Family Issues",
+      "start_time": "00:42:05",
+      "end_time": "00:45:00"
+    },
+    {
+      "topic_name": "Financial Stress",
+      "start_time": "00:45:05",
+      "end_time": "00:48:00"
+    },
+    {
+      "topic_name": "Self-Esteem",
+      "start_time": "00:48:05",
+      "end_time": "00:51:00"
+    },
+    {
+      "topic_name": "Goal Setting",
+      "start_time": "00:51:05",
+      "end_time": "00:54:00"
+    },
+    {
+      "topic_name": "Progress Review",
+      "start_time": "00:54:05",
+      "end_time": "00:57:00"
+    },
+    {
+      "topic_name": "Future Plans",
+      "start_time": "00:57:05",
+      "end_time": "01:00:00"
+    }
+    ]
+}

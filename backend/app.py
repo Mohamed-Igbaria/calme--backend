@@ -36,7 +36,7 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 port = int(os.getenv("FLASK_RUN_PORT", 5000))  # Default to 8000 if not setmongo = PyMongo(app)
 mongo = PyMongo(app)
 db = mongo.db  # Reference to the database
-
+db.session
 # Collection reference
 users_collection = db.Users
 
