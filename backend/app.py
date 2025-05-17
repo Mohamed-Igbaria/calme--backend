@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 import os
 from dotenv import load_dotenv
 import apifun as ap
+from datetime import datetime
 
 #Including SessionTimelineAnalysisDashboard files 
 from SessionTimelineAnalysisDashboardFolder.TalkingTimeData import talking_time_bp
@@ -169,6 +170,128 @@ def delete_product(user_email):
 
     return jsonify({"message": "user deleted"}), 200
 
+
+@app.route('/api/transcript/save', methods=['POST'])
+def save_transcript():
+    try:
+        # Get data from request
+        data = request.json
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+
+        # Validate required fields
+        required_fields = ['session_id', 'therapist_id', 'user_id']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({'error': f'Missing required field: {field}'}), 400
+
+        # Create base transcript document
+        transcript_doc = {
+            "session_id": data['session_id'],
+            "therapist_id": data['therapist_id'],  # Using therapist_id instead of doc_id
+            "user_id": data['user_id'],
+            "created_at": datetime.utcnow(),
+            "language": data.get('language', 'en'),
+        }
+
+        # Store the complete Gladia response
+        gladia_response = data.get('gladia_response')
+        
+        if gladia_response:
+            # Extract and structure the response data
+            transcript_doc['gladia_id'] = gladia_response.get('id')
+            transcript_doc['request_id'] = gladia_response.get('request_id')
+            transcript_doc['status'] = gladia_response.get('status')
+            transcript_doc['created_at_gladia'] = gladia_response.get('created_at')
+            transcript_doc['completed_at'] = gladia_response.get('completed_at')
+            
+            # Store file info if available
+            if 'file' in gladia_response:
+                transcript_doc['file'] = {
+                    'id': gladia_response['file'].get('id'),
+                    'filename': gladia_response['file'].get('filename'),
+                    'audio_duration': gladia_response['file'].get('audio_duration'),
+                    'number_of_channels': gladia_response['file'].get('number_of_channels')
+                }
+            
+            # Store request parameters
+            if 'request_params' in gladia_response:
+                transcript_doc['request_params'] = gladia_response['request_params']
+            
+            # Process transcription results
+            if 'result' in gladia_response and 'transcription' in gladia_response['result']:
+                transcription = gladia_response['result']['transcription']
+                
+                # Store full transcript if available
+                if 'full_transcript' in transcription:
+                    transcript_doc['full_transcript'] = transcription['full_transcript']
+                
+                # Store detailed results (utterances or segments)
+                if 'utterances' in transcription:
+                    transcript_doc['results'] = transcription['utterances']
+                elif 'segments' in transcription:
+                    transcript_doc['results'] = transcription['segments']
+                
+                # Add sentiment analysis if available
+                if 'sentiment_analysis' in gladia_response['result']:
+                    transcript_doc['sentiment_analysis'] = gladia_response['result']['sentiment_analysis']
+                
+                # Add summarization if available
+                if 'summarization' in gladia_response['result']:
+                    transcript_doc['summarization'] = gladia_response['result']['summarization']
+                
+                # Add LLM results if available
+                if 'audio_to_llm' in gladia_response['result']:
+                    transcript_doc['audio_to_llm'] = gladia_response['result']['audio_to_llm']
+            
+            # If we can't extract structured data, store the raw response
+            if 'results' not in transcript_doc and gladia_response:
+                transcript_doc['raw_response'] = gladia_response
+        else:
+            # If no Gladia response, check for text
+            if 'text' in data:
+                transcript_doc['full_transcript'] = data['text']
+                
+                # Create a simple segment
+                transcript_doc['results'] = [{
+                    "text": data['text'],
+                    "language": data.get('language', 'en'),
+                    "start": 0,
+                    "end": len(data['text']) / 10,  # Rough estimate of duration
+                    "speaker": 0,
+                    "channel": 0
+                }]
+
+        try:
+            result = mongo.db.transcripts.insert_one(transcript_doc)
+        except Exception as e:
+            return jsonify({"error": "Database error"}), 500
+        return jsonify({
+            "message": "Transcript saved successfully",
+            "transcript_id": str(result.inserted_id),
+            "session_id": data['session_id']
+        }), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/transcript/<session_id>', methods=['GET'])
+def get_transcript(session_id):
+    try:
+        # Find transcript by session_id
+        transcript = mongo.db.transcripts.find_one({"session_id": session_id})
+        
+        if not transcript:
+            return jsonify({"error": "Transcript not found"}), 404
+            
+        # Convert ObjectId to string for JSON serialization
+        transcript['_id'] = str(transcript['_id'])
+        
+        return jsonify(transcript), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 
